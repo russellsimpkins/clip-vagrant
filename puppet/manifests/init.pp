@@ -20,6 +20,6 @@ stage { 'final':
   require => Stage['main'],
 }
 
-node '{{ ansible_ec2_hostname }}' {
+node 'localhost.nyhq.nytint.com' {
     include clip_service
 }

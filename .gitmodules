@@ -1,0 +1,8 @@
+[submodule "clip-servce"]
+	path = gopath/clip-service
+	url = git@github.com:russellsimpkins/clip-service.git
+	branch = master
+[submodule "ensemble-service"]
+	path = gopath/ensemble-service
+	url = git@github.com:russellsimpkins/ensemble-service.git
+	branch = master

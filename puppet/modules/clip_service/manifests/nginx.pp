@@ -5,7 +5,7 @@ class clip_service::nginx {
     file{'/etc/nginx/sites-enabled/default':
       ensure   => file,
       replace  => true,
-      source   => "puppet://${module_name}/default_site_config"
+      source   => "puppet:///modules/${module_name}/default_site_config"
     } ->
     service{'nginx':
       ensure => running
