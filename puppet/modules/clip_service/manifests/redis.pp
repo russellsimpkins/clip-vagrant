@@ -6,11 +6,17 @@ class clip_service::redis () {
     ensure => file,
     replace => true,
     source => "puppet:///modules/${module_name}/base-load"
-  } -> 
+  } ->
+  file {'/tmp/load-redis':
+    ensure => file,
+    replace => true,
+    source => "puppet:///modules/${module_name}/load-redis",
+    mode => 655
+  }-> 
   exec {'load-base-data':
     path        => '/bin:/usr/bin:/sbin:/usr/sbin',
     cwd         => '/tmp',
-    command     => "cat /tmp/base-load; sleep 10; |nc localhost 6379 > /tmp/redis-loaded ",
+    command     => "/tmp/load-redis",
     unless      => "test -f /tmp/redis-loaded",
     logoutput   => 'on_failure'
   }

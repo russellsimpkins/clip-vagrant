@@ -1,3 +1,5 @@
 flushall
+
 set "team:Data Universe" "{\"name\":\"Data Universe\",\"users\":null,\"tokens\":[{\"team\":\"Data Universe\",\"name\":\"Frontend APIs\",\"crc32\":3016907399,\"token\":\"effaa180c18ac3fcfb1020e6f78f9380ff4de87b7cf4448d711cba3c327c8d50\",\"apps\":{\"Weather\":{\"features\":{\"showCurrentWeather\":{\"attributes\":{\"allowUpdate\":true},\"sbx\":1,\"dev\":1,\"stg\":0,\"int\":0,\"prd\":0},\"showWeatherFinder\":{\"attributes\":{\"allowUpdate\":false},\"sbx\":1,\"dev\":1,\"stg\":0,\"int\":0,\"prd\":0}}}}},{\"team\":\"Data Universe\",\"name\":\"Backend APIs\",\"crc32\":1094911309,\"token\":\"bc672c23f3b88a3743a05734233545af40d05afec9b0770c15b2d69198dcf299\",\"apps\":{\"WSOD\":{\"features\":{\"StockListing\":{\"attributes\":{\"showDetails\":true},\"sbx\":1,\"dev\":1,\"stg\":0,\"int\":0,\"prd\":0},\"NASDAQ\":{\"attributes\":{\"showDollars\":false},\"sbx\":1,\"dev\":1,\"stg\":0,\"int\":0,\"prd\":0}}}}}]}"
+
 sadd teams "Data Universe"
