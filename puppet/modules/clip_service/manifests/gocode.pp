@@ -44,9 +44,11 @@ class clip_service::gocode() {
   }
   ->
   service{'clip-service':
-    ensure => running
+    ensure => running,
+    enable => true
   } ->
   service{'magic':
-    ensure => running
+    ensure => running,
+    enable => true
   }  
 }

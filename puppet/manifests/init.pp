@@ -20,6 +20,6 @@ stage { 'final':
   require => Stage['main'],
 }
 
-node 'localhost.nyhq.nytint.com' {
+node 'localhost' {
     include clip_service
 }

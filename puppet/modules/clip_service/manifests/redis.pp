@@ -1,6 +1,7 @@
 class clip_service::redis () {
   service{'redis-server':
-    ensure => running
+    ensure => running,
+    enable => true
   } -> 
   file {'/tmp/base-load':
     ensure => file,

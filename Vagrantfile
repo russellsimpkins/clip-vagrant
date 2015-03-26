@@ -12,6 +12,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "ubuntu/trusty64"
   config.vm.box = "puppetlabs/ubuntu-14.04-64-puppet"
+  config.vm.hostname = "localhost"
   # 
   #config.vm.network "public_network", bridge: 'en1: Wi-Fi (AirPort)', ip: "192.168.0.17"
   config.vm.network :private_network, ip: "192.168.33.10"
@@ -26,6 +27,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   
   config.vm.provision "shell",
   inline: "rm -rf /etc/puppet/modules/*"
+  config.vm.provision "shell",
+  inline: "rm -rf /etc/puppet/manifests/*"
   config.vm.provision "shell",
   inline: "cp /vagrant/puppet/manifests/init.pp /etc/puppet/manifests"
   config.vm.provision "shell",

@@ -13,7 +13,7 @@ DAEMON=$(which magic)
 NAME=magic
 DESC=magic
 PIDFILE=/var/run/magic/service.pid
-DAEMONUSER=ROOT
+DAEMONUSER=root
 STARTTIME=1
 
 . /lib/lsb/init-functions

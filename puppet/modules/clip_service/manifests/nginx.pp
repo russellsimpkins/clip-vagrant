@@ -8,6 +8,7 @@ class clip_service::nginx {
       source   => "puppet:///modules/${module_name}/default_site_config"
     } ->
     service{'nginx':
-      ensure => running
+      ensure => running,
+      enable => true
     }
 }
