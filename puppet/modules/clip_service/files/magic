@@ -14,6 +14,7 @@ NAME=magic
 DESC=magic
 PIDFILE=/var/run/magic/service.pid
 DAEMONUSER=ROOT
+STARTTIME=1
 
 . /lib/lsb/init-functions
 
@@ -36,7 +37,7 @@ running_pid() {
 running() {
   [ ! -f "$PIDFILE" ] && return 1
   pid=`cat $PIDFILE`
-  running_pid $pid magic || return 1
+  running_pid $pid ${NAME} || return 1
   return 0
 }
 
