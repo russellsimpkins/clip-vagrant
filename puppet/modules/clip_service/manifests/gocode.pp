@@ -25,7 +25,7 @@ class clip_service::gocode() {
     path        => '/bin:/usr/bin:/sbin:/usr/sbin',
     cwd         => '/gopath',
     environment => 'GOPATH=/gopath',
-    command     => "go build -o /usr/bin/magic /gopath/clip-service/magic.go ",
+    command     => "go build -o /usr/bin/magic /gopath/ensemble-service/magic.go ",
     unless      => "test -f /usr/bin/magic",
     logoutput   => 'on_failure'
   } ->
