@@ -4,6 +4,7 @@ class clip_service::gocode() {
     cwd         => '/gopath',
     environment => 'GOPATH=/gopath',
     command     => "go get -u github.com/russellsimpkins/clip-service",
+    creates     => "/gopath/src/github.com/russellsimpkins/clip-service",
     logoutput   => 'on_failure'
   } ->
   exec {"update_ensemble":
@@ -11,6 +12,7 @@ class clip_service::gocode() {
     cwd         => '/gopath',
     environment => 'GOPATH=/gopath',
     command     => "go get -u github.com/russellsimpkins/ensemble-service",
+    creates     => '/gopath/src/github.com/russellsimpkins/ensemble-service',
     logoutput   => 'on_failure'
   } ->
   exec {"build_clip_service":
