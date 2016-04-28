@@ -13,7 +13,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "ubuntu/trusty64"
   config.vm.box = "puppetlabs/ubuntu-14.04-64-puppet"
   config.vm.hostname = "localhost"
-  # 
+  #
   #config.vm.network "public_network", bridge: 'en1: Wi-Fi (AirPort)', ip: "192.168.0.17"
   config.vm.network :private_network, ip: "192.168.33.10"
   config.vm.network :forwarded_port, guest: 80, host: 8080
@@ -22,16 +22,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     v.memory = 2048
     v.cpus = 2
   end
-  
   config.vm.synced_folder "gopath", "/gopath"
-  
+
   config.vm.provision "shell", inline: <<-SHELL
     rm -rf /etc/puppet/modules/*
     rm -rf /etc/puppet/manifests/*
     cp /vagrant/puppet/manifests/init.pp /etc/puppet/manifests
     rsync -a /vagrant/puppet/modules/* /etc/puppet/modules
   SHELL
-  
+
   config.vm.provision "puppet" do |puppet|
     puppet.manifests_path = "puppet/manifests"
     puppet.module_path = "puppet/modules"
@@ -40,15 +39,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
 #  config.trigger.after [:provision, :up, :reload] do
 #      system('echo "
-#rdr pass on lo0 inet proto tcp from any to 127.0.0.1 port 80 -> 127.0.0.1 port 8080  
-#rdr pass on lo0 inet proto tcp from any to 127.0.0.1 port 443 -> 127.0.0.1 port 8443  
-#" | sudo pfctl -f - > /dev/null 2>&1; echo "==> Fowarding Ports: 80 -> 8080, 443 -> 8443"')  
+#rdr pass on lo0 inet proto tcp from any to 127.0.0.1 port 80 -> 127.0.0.1 port 8080
+#rdr pass on lo0 inet proto tcp from any to 127.0.0.1 port 443 -> 127.0.0.1 port 8443
+#" | sudo pfctl -f - > /dev/null 2>&1; echo "==> Fowarding Ports: 80 -> 8080, 443 -> 8443"')
 #  end
 
 #  config.trigger.after [:halt, :destroy] do
 #    system("sudo pfctl -f /etc/pf.conf > /dev/null 2>&1; echo '==> Removing Port Forwarding'")
 #  end
-  
+
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.
@@ -62,7 +61,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
   # config.vm.network "private_network", ip: "192.168.33.10"
-	
+
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
   # your network.
