@@ -25,14 +25,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   
   config.vm.synced_folder "gopath", "/gopath"
   
-  config.vm.provision "shell",
-  inline: "rm -rf /etc/puppet/modules/*"
-  config.vm.provision "shell",
-  inline: "rm -rf /etc/puppet/manifests/*"
-  config.vm.provision "shell",
-  inline: "cp /vagrant/puppet/manifests/init.pp /etc/puppet/manifests"
-  config.vm.provision "shell",
-  inline: "rsync -a /vagrant/puppet/modules/* /etc/puppet/modules"
+  config.vm.provision "shell", inline: <<-SHELL
+    rm -rf /etc/puppet/modules/*
+    rm -rf /etc/puppet/manifests/*
+    cp /vagrant/puppet/manifests/init.pp /etc/puppet/manifests
+    rsync -a /vagrant/puppet/modules/* /etc/puppet/modules
+  SHELL
   
   config.vm.provision "puppet" do |puppet|
     puppet.manifests_path = "puppet/manifests"
